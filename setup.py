@@ -20,9 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'local_vel_pid = mavros_pid_vel_control.local_vel_pid:main',
             'global_vel_pid = mavros_pid_vel_control.global_vel_pid:main',
-            'global_pose = mavros_pid_vel_control.global_pose:main'
         ],
     },
 )
