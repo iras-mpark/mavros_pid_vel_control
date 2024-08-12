@@ -116,7 +116,16 @@ class HoveringController(Node):
         v_lat = self.lat_controller.compute(target_lat*1e5, current_lat*1e5, dt) # lat from [degree] to [m]
         v_lon = self.lon_controller.compute(target_lon*1e5, current_lon*1e5, dt) # lon from [degree] to [m]
         v_alt = self.alt_controller.compute(target_alt, current_alt, dt)
-
+        if v_lat > 1.5:
+            v_lat = 1.5
+        elif v_lat < -1.5:
+            v_lat = 1.5
+            
+        if v_lon > 1.5:
+            v_lon = 1.5
+        elif v_lon < -1.5:
+            v_lon = 1.5
+            
         twist_msg = TwistStamped()
         twist_msg.header.stamp = self.get_clock().now().to_msg()
         twist_msg.twist.linear.x = v_lon
