@@ -71,7 +71,7 @@ class HoveringController(Node):
 
         target_lat = self.target_pose.latitude + self.offset_lat + init_offset_lat
         target_lon = self.target_pose.longitude + self.offset_lon + init_offset_lon
-        target_alt = self.offset_alt #+ self.current_pose_init.altitude
+        target_alt = self.offset_alt + self.target_pose.altitude
 
 
         geopose_msg = GeoPoseStamped()
